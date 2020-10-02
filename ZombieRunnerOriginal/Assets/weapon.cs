@@ -10,7 +10,7 @@ public class weapon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButton("fire1"))
+        if (Input.GetButton("Fire1"))
         {
             Shoot();
         }
@@ -19,7 +19,7 @@ public class weapon : MonoBehaviour
     private void Shoot()
     {
         RaycastHit Hit;
-        Physics.Raycast(myCamera.transform.position, transform.forward, out Hit, Range);
-        print(Hit);
+        Physics.Raycast(myCamera.transform.position, myCamera.transform.forward, out Hit, Range);
+        print(Hit.transform.name);
     }
 }
