@@ -8,6 +8,7 @@ public class Weapon : MonoBehaviour
     [SerializeField] float Range = 100f;
     [SerializeField] public float damage = 10f;
     [SerializeField] ParticleSystem muzzleFlash;
+    [SerializeField] GameObject sparks;
  
     // Update is called once per frame
     void Update()
@@ -20,7 +21,7 @@ public class Weapon : MonoBehaviour
     }
     private void Shoot()
     {
-        processEffects();
+        
         processShot();
     }
 
@@ -28,14 +29,14 @@ public class Weapon : MonoBehaviour
     {
         muzzleFlash.Play();
     }
-
+    
     private void processShot()
     {
         RaycastHit Hit;
         if (Physics.Raycast(myCamera.transform.position, myCamera.transform.forward, out Hit, Range))
         {
-
-            print(Hit.transform.name);
+            processEffects();
+            impactGenerated(Hit);
             EnemyHealth target = Hit.transform.GetComponent<EnemyHealth>();
             if (target == null) return;
             target.DamageTaken(damage);
@@ -45,4 +46,10 @@ public class Weapon : MonoBehaviour
             return;
         }
     }
+    private void impactGenerated(RaycastHit Hit)
+    {
+        GameObject impact = Instantiate(sparks, Hit.point, Quaternion.LookRotation(Hit.normal));
+        Destroy(impact, .1f);
+    }
+
 }
