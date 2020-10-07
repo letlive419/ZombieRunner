@@ -1618,6 +1618,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 61029877}
   m_PrefabAsset: {fileID: 0}
+--- !u!20 &699867266 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 2000000, guid: c6453f8e1f814744d8b94e5a6d1f9942,
+    type: 3}
+  m_PrefabInstance: {fileID: 1076281094}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -1742,6 +1748,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+--- !u!114 &729028249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 729028243}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ef6f6443a50f47638ec0907da6ba536, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraFieldOfView: {fileID: 699867266}
 --- !u!1 &731819530
 GameObject:
   m_ObjectHideFlags: 0
@@ -1946,7 +1965,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1290673848, guid: bb6094de7291dfd44b50e94134cc828f, type: 3}
       propertyPath: Health
-      value: 2000
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 1290673856, guid: bb6094de7291dfd44b50e94134cc828f, type: 3}
       propertyPath: damage
