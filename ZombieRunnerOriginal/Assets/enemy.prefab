@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 190325321}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0.01, y: 0.54, z: 0.7}
-  m_LocalScale: {x: 0.97065, y: -0.1086445, z: 0.13365}
+  m_LocalScale: {x: 0.97065, y: 0.1, z: 0.13365}
   m_Children: []
   m_Father: {fileID: 1347494646738220227}
   m_RootOrder: 0
@@ -109,6 +109,7 @@ GameObject:
   - component: {fileID: 1347494646738220238}
   - component: {fileID: 1290673855}
   - component: {fileID: 1290673848}
+  - component: {fileID: 1290673856}
   m_Layer: 0
   m_Name: enemy
   m_TagString: Untagged
@@ -228,6 +229,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   chaseRange: 20
+  turnSpeed: 5
 --- !u!95 &1290673855
 Animator:
   serializedVersion: 3
@@ -260,3 +262,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Health: 100
+--- !u!114 &1290673856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1347494646738220237}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b434b3ff2d4f49beb21b9a15693bf4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 5

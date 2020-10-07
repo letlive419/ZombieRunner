@@ -23,7 +23,7 @@ public class PlayerHealth : MonoBehaviour
         print(health);
         if (health <= 0)
         {
-            print("game over");
+            GetComponent<DeathHandler>().Death();
         }
     }
 }
