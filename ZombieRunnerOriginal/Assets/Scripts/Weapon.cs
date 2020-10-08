@@ -10,31 +10,34 @@ public class Weapon : MonoBehaviour
     [SerializeField] ParticleSystem muzzleFlash;
     [SerializeField] GameObject sparks;
     [SerializeField] Ammo ammoSlot;
-   
- 
+    [SerializeField] float timeBetweenShots = 5f;
+
+    bool canShoot = true;
     // Update is called once per frame
     void Update()
     {
         if (Input.GetButtonDown("Fire1"))
         {
-            Shoot();
+            StartCoroutine(Shoot());
         }
 
     }
-    private void Shoot()
+    IEnumerator Shoot()
     {
-        if (ammoSlot.ReturnAmmo() > 0)
+        
+        if (ammoSlot.ReturnAmmo() > 0 && canShoot == true)
         {
             
             processEffects();
             processShot();
             ammoSlot.reduceAmmo();
-            
+            AudioSource Audio = GetComponent<AudioSource>();
+            Audio.Play();
+            canShoot = false;
+
         }
-        else
-        {
-            return;
-        }
+        yield return new WaitForSeconds(timeBetweenShots);
+        canShoot = true;
     }
 
     private void processEffects()
