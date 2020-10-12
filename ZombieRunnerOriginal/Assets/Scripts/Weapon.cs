@@ -10,6 +10,7 @@ public class Weapon : MonoBehaviour
     [SerializeField] ParticleSystem muzzleFlash;
     [SerializeField] GameObject sparks;
     [SerializeField] Ammo ammoSlot;
+    [SerializeField] AmmoType ammoType;
     [SerializeField] float timeBetweenShots = 5f;
 
     bool canShoot = true;
@@ -25,12 +26,12 @@ public class Weapon : MonoBehaviour
     IEnumerator Shoot()
     {
         
-        if (ammoSlot.ReturnAmmo() > 0 && canShoot == true)
+        if (ammoSlot.ReturnAmmo(ammoType) > 0 && canShoot == true)
         {
             
             processEffects();
             processShot();
-            ammoSlot.reduceAmmo();
+            ammoSlot.reduceAmmo(ammoType);
             AudioSource Audio = GetComponent<AudioSource>();
             Audio.Play();
             canShoot = false;

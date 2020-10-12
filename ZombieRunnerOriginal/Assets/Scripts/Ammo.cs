@@ -8,22 +8,48 @@ public class Ammo : MonoBehaviour
     [SerializeField] AmmoSlot[] ammoSlots;
 
 
+
+
     [System.Serializable]
-    private void AmmoSlot()
-    {
-        public int ammoAmount;
-   public AmmoType ammoType;
 
+    private class AmmoSlot
+    {
+        public AmmoType ammoType;
+
+    public int ammoAmount; 
     }
 
-    public int ReturnAmmo()
+
+
+public int ReturnAmmo(AmmoType ammoType)
     {
-        return ammoAmount;
+        return GetAmmoSlot(ammoType).ammoAmount;
+}
+
+    public void reduceAmmo(AmmoType ammoType)
+    {
+    GetAmmoSlot(ammoType).ammoAmount--;
     }
 
-    public void reduceAmmo()
+    public void IncreaseAmmo(AmmoType ammoType, int ammoAmount)
     {
-        ammoAmount--;
+        GetAmmoSlot(ammoType).ammoAmount += ammoAmount;
     }
+
+
+
+
+    private AmmoSlot GetAmmoSlot(AmmoType ammoType)
+{
+    foreach (AmmoSlot slot in ammoSlots)
+    {
+        if (slot.ammoType == ammoType)
+        {
+            return slot;
+        }
+    }
+    return null;
 }
 }
+    
+
