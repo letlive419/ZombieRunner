@@ -134,7 +134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b434b3ff2d4f49beb21b9a15693bf4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 5
+  damage: 15
 --- !u!23 &1201625144
 MeshRenderer:
   m_ObjectHideFlags: 0
