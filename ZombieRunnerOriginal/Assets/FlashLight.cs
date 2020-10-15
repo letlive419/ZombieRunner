@@ -23,11 +23,26 @@ public class FlashLight : MonoBehaviour
 
     private void Update()
     {
-     
-                DescreaseLightAngle();
-                DecreaseLightIntensity();
+        if (Input.GetButtonDown("flashlight"))
+        {
+            if (myLight.enabled == true)
+            {
+                myLight.enabled = false;
+            }
+            else
+            {
+                myLight.enabled = true;
+                
+            }
+          
+        }
+        if (myLight.enabled == true)
+        {
 
-            
+
+            DescreaseLightAngle();
+            DecreaseLightIntensity();
+        }
     }
 
     private void DecreaseLightIntensity()
