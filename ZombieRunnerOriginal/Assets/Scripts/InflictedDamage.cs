@@ -18,6 +18,7 @@ public class InflictedDamage : MonoBehaviour
         if (target == null) return;
       
         target.takeDamage(damage);
+        target.GetComponent<DamageTakenDisplay>().startDamageTaken();
     }
   
 }
