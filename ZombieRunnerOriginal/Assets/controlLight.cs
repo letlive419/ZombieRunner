@@ -19,7 +19,7 @@ public class controlLight : MonoBehaviour
     {
 
         lightChange();
-        print(Time.time);
+        
     }
 
     private void lightChange()

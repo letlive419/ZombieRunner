@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityStandardAssets.CrossPlatformInput;
 
 public class Weapon : MonoBehaviour
 {
@@ -15,13 +16,16 @@ public class Weapon : MonoBehaviour
     [SerializeField] AmmoType ammoType;
     [SerializeField] float timeBetweenShots = 5f;
     [SerializeField] TextMeshProUGUI ammoCount;
+    
+
     bool canShoot = true;
     // Update is called once per frame
     void Update()
     {
         DisplayAmmo();
-        if (Input.GetButtonDown("Fire1"))
+        if (CrossPlatformInputManager.GetButtonDown("Fire1"))
         {
+          
             StartCoroutine(Shoot());
         }
 
@@ -68,6 +72,7 @@ public class Weapon : MonoBehaviour
             EnemyHealth target = Hit.transform.GetComponent<EnemyHealth>();
             if (target == null) return;
             target.DamageTaken(damage);
+            
             
 
         }

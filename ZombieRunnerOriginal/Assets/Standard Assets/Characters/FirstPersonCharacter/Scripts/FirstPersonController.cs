@@ -131,7 +131,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             ProgressStepCycle(speed);
             UpdateCameraPosition(speed);
 
-            m_MouseLook.UpdateCursorLock();
+           // m_MouseLook.UpdateCursorLock();
         }
 
 
@@ -237,6 +237,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
         private void RotateView()
         {
+           
             m_MouseLook.LookRotation (transform, m_Camera.transform);
         }
 

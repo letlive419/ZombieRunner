@@ -25,24 +25,24 @@ public class WeaponZoom : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(1))
-        {
-            if (zoomedIn == false)
-            {
-                zoomedIn = true;
-                cameraFieldOfView.fieldOfView = zoomedInFOV;
-                sensitivityController.mouseLook.XSensitivity = 1f;
-                sensitivityController.mouseLook.YSensitivity = 1f;
+        //if (Input.GetMouseButtonDown(1))
+        //{
+        //    if (zoomedIn == false)
+        //    {
+        //        zoomedIn = true;
+        //        cameraFieldOfView.fieldOfView = zoomedInFOV;
+        //        sensitivityController.mouseLook.XSensitivity = 1f;
+        //        sensitivityController.mouseLook.YSensitivity = 1f;
                 
-            }
-            else
-            {
-                zoomedIn = false;
-                cameraFieldOfView.fieldOfView = zoomedOutFOV;
-                sensitivityController.mouseLook.XSensitivity = 2f;
-                sensitivityController.mouseLook.YSensitivity = 2f;
-            }
-        }
+        //    }
+        //    else
+        //    {
+        //        zoomedIn = false;
+        //        cameraFieldOfView.fieldOfView = zoomedOutFOV;
+        //        sensitivityController.mouseLook.XSensitivity = 2f;
+        //        sensitivityController.mouseLook.YSensitivity = 2f;
+        //    }
+        //}
         
 
     }

@@ -7,6 +7,7 @@ public class EnemyHealth : MonoBehaviour
 {
 
     [SerializeField] float Health = 100f;
+    
 
     public bool isDead = false;
 
@@ -25,6 +26,8 @@ public class EnemyHealth : MonoBehaviour
     {
         BroadcastMessage("OnDamageTaken");
         Health -= damage;
+        
+
         print(Health);
         if (Health <= 0)
             {

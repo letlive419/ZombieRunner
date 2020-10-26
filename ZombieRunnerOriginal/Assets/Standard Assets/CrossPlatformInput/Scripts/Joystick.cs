@@ -14,10 +14,11 @@ namespace UnityStandardAssets.CrossPlatformInput
 			OnlyVertical // Only vertical
 		}
 
+		
 		public int MovementRange = 100;
 		public AxisOption axesToUse = AxisOption.Both; // The options for the axes that the still will use
-		public string horizontalAxisName = "Horizontal"; // The name given to the horizontal axis for the cross platform input
-		public string verticalAxisName = "Vertical"; // The name given to the vertical axis for the cross platform input
+		public string horizontalAxisName = "Horizon"; // The name given to the horizontal axis for the cross platform input
+		public string verticalAxisName = "Vertices"; // The name given to the vertical axis for the cross platform input
 
 		Vector3 m_StartPos;
 		bool m_UseX; // Toggle for using the x axis
@@ -27,8 +28,10 @@ namespace UnityStandardAssets.CrossPlatformInput
 
 		void OnEnable()
 		{
+			
 			CreateVirtualAxes();
 		}
+	
 
         void Start()
         {
@@ -43,13 +46,20 @@ namespace UnityStandardAssets.CrossPlatformInput
 			if (m_UseX)
 			{
 				m_HorizontalVirtualAxis.Update(-delta.x);
+				
+
+
+				
 			}
 
 			if (m_UseY)
 			{
 				m_VerticalVirtualAxis.Update(delta.y);
+				
 			}
+			
 		}
+	
 
 		void CreateVirtualAxes()
 		{
@@ -62,17 +72,24 @@ namespace UnityStandardAssets.CrossPlatformInput
 			{
 				m_HorizontalVirtualAxis = new CrossPlatformInputManager.VirtualAxis(horizontalAxisName);
 				CrossPlatformInputManager.RegisterVirtualAxis(m_HorizontalVirtualAxis);
+				
 			}
 			if (m_UseY)
 			{
 				m_VerticalVirtualAxis = new CrossPlatformInputManager.VirtualAxis(verticalAxisName);
 				CrossPlatformInputManager.RegisterVirtualAxis(m_VerticalVirtualAxis);
+				
 			}
+			
 		}
 
 
 		public void OnDrag(PointerEventData data)
 		{
+
+			FindObjectOfType<UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController>().isOn = false;
+			Debug.Log("mouse is off");
+
 			Vector3 newPos = Vector3.zero;
 
 			if (m_UseX)
@@ -95,19 +112,23 @@ namespace UnityStandardAssets.CrossPlatformInput
 
 		public void OnPointerUp(PointerEventData data)
 		{
+			FindObjectOfType<UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController>().isOn = true;
 			transform.position = m_StartPos;
 			UpdateVirtualAxes(m_StartPos);
 		}
 
 
-		public void OnPointerDown(PointerEventData data) { }
+		public void OnPointerDown(PointerEventData data) {
+			 }
 
 		void OnDisable()
 		{
+			
 			// remove the joysticks from the cross platform input
 			if (m_UseX)
 			{
 				m_HorizontalVirtualAxis.Remove();
+				
 			}
 			if (m_UseY)
 			{
